@@ -1,4 +1,4 @@
-package com.example.producer.adapter.web;
+package com.example.producer.adapter.out.web;
 
 import com.example.producer.adapter.out.web.KafkaProducer;
 import org.junit.jupiter.api.DisplayName;
