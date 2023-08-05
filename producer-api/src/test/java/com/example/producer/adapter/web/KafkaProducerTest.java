@@ -1,5 +1,6 @@
 package com.example.producer.adapter.web;
 
+import com.example.producer.adapter.out.web.KafkaProducer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
