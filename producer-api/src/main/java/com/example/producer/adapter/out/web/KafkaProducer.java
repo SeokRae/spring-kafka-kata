@@ -15,7 +15,7 @@ public class KafkaProducer {
     private final TopicProperties topicProperties;
 
     public void create(String message) {
-        log.info("{}", topicProperties);
+        log.info("key: {}, value: {}", topicProperties.getTopic(), message);
         kafkaTemplate.send(topicProperties.getTopic(), message);
     }
 }
