@@ -5,3 +5,13 @@ kafka:
 
 topics:
   topic: testMessage
+
+
+logging:
+  level:
+    root: info
+    org:
+      apache:
+        kafka:
+          clients:
+            producer: debug
