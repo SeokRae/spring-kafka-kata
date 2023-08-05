@@ -14,10 +14,13 @@ public class KafkaProperties {
 
     private final String ip;
     private final String port;
+    private final String domain;
 
     @ConstructorBinding
     public KafkaProperties(String ip, String port) {
         this.ip = ip;
         this.port = port;
+        this.domain = ip + ":" + port;
+        log.info("{}", this);
     }
 }
