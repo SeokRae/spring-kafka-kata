@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_PATH" value="logs"/>
+    <property name="LOG_ROLLING_EVENT" value="${LOG_PATH}/event-%d{yyyy-MM-dd}.log"/>
+
+    <property name="STDOUT_FORMAT"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] [%-40.40C{1}.%-25.25method:%-3.3line] - %msg%n"/>
+
+    <!-- Console appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${STDOUT_FORMAT}</pattern>
+        </encoder>
+    </appender>
+
+    <logger level="OFF" name="ch.qos.logback"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
