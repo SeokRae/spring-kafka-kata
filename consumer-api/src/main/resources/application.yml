@@ -15,4 +15,4 @@ logging:
       apache:
         kafka:
           clients:
-            producer: debug
+            consumer: debug

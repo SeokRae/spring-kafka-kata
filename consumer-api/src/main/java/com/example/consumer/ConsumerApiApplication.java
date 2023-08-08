@@ -3,6 +3,8 @@ package com.example.consumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.context.annotation.Profile;
+
 
 @SpringBootApplication
 @ConfigurationPropertiesScan("com.example.consumer.core.props")

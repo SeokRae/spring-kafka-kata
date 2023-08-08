@@ -8,6 +8,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -16,6 +17,7 @@ import java.util.Properties;
 
 @Slf4j
 @Component
+@Profile("batch-sync")
 public class KafkaBatchSyncConsumer {
 
     private final KafkaConsumer<String, String> consumer;

@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -16,6 +17,7 @@ import java.util.Properties;
 
 @Slf4j
 @Component
+@Profile("single-sync")
 public class KafkaSingleSyncConsumer {
 
     private final KafkaConsumer<String, String> consumer;
