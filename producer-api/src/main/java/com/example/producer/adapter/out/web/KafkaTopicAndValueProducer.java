@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class KafkaProducer {
+public class KafkaTopicAndValueProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final TopicProperties topicProperties;
@@ -18,23 +18,5 @@ public class KafkaProducer {
     public void createDefaultMessage(String message) {
         log.info("key: {}, value: {}", topicProperties.getTopic(), message);
         kafkaTemplate.send(topicProperties.getTopic(), message);
-    }
-
-    /* topic, key, value */
-    public void createKeyValueMessage(String key, String message) {
-        log.info("key: {}, value: {}", key, message);
-        kafkaTemplate.send(topicProperties.getTopic(), key, message);
-    }
-
-    /* topic, record */
-    public void createRecord(String key, String message) {
-        log.info("key: {}, value: {}", key, message);
-
-        ProducerRecord<String, String> record = new ProducerRecord<>(
-                topicProperties.getTopic(),
-                key,
-                message
-        );
-        kafkaTemplate.send(record);
     }
 }
