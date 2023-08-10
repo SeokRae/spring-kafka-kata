@@ -8,12 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.core.KafkaTemplate;
 
 @SpringBootTest
-public class KafkaProducerSampleTest {
+public class KafkaTemplateProducerTest {
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    @DisplayName("카프카 샘플 전송 테스트")
+    @DisplayName("카프카 KafkaTemplate 전송 테스트")
     @Test
     void sample() {
         // given
