@@ -30,6 +30,11 @@ public class KafkaRebalanceConsumer {
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
         this.consumer = new KafkaConsumer<>(configs);
+
+        /* 컨슈머에 할당된 파티션 확인 방법 */
+        Set<TopicPartition> assignment = consumer.assignment();
+        log.info("assignment: {}", assignment);
+
         this.subscribe(topicProperties.getTopic());
     }
 
@@ -52,6 +57,7 @@ public class KafkaRebalanceConsumer {
 
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
+
             for (ConsumerRecord<String, String> record : records) {
                 /* 레코드의 데이터 처리가 끝나면 레코드가 속한 토픽, 파티션, 오프셋에 관한정보를 HashMap에 저장 */
                 currentOffsets.put(
