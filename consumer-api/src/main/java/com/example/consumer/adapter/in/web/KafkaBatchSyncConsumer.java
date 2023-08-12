@@ -7,6 +7,7 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
+import java.util.Set;
 
 @Slf4j
 @Component
@@ -32,7 +34,11 @@ public class KafkaBatchSyncConsumer {
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         this.consumer = new KafkaConsumer<>(configs);
 
-        consume(topicProperties.getTopic());
+        /* 컨슈머에 할당된 파티션 확인 방법 */
+        Set<TopicPartition> assignment = consumer.assignment();
+        log.info("assignment: {}", assignment);
+
+        this.consume(topicProperties.getTopic());
     }
 
     public void consume(String topic) {
