@@ -1,3 +1,12 @@
+kafka:
+  config:
+    ip: 127.0.0.1
+    port: 9092
+
+topics:
+  topic: testMessage
+  group-id: test-group
+
 logging:
   level:
     root: info
